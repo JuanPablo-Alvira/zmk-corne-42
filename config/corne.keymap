@@ -65,9 +65,9 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp GRAVE  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK             &kp LPAR          &kp RPAR           &none
-&kp TILDE  &none     &none   &none     &none     &none        &kp MINUS  &kp EQUAL  &kp PIPE              &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp SINGLE_QUOTE
-&trans     &none     &none   &none     &none     &none        &kp UNDER  &kp PLUS   &kp NON_US_BACKSLASH  &tap_Lbracket_LT  &tap_Rbracket_GT   &kp DOUBLE_QUOTES
+&kp GRAVE  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK      &kp LPAR          &kp RPAR           &none
+&kp TILDE  &none     &none   &none     &none     &none        &kp MINUS  &kp EQUAL  &kp PIPE       &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp SINGLE_QUOTE
+&trans     &none     &none   &none     &none     &none        &kp UNDER  &kp PLUS   &kp BACKSLASH  &tap_Lbracket_LT  &tap_Rbracket_GT   &kp DOUBLE_QUOTES
                              &trans    &trans    &mo 3        &trans     &trans     &trans
             >;
         };
