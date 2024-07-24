@@ -8,6 +8,22 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    behaviors {
+        tap_Lbracket_LT: tap_Lbracket_LT {
+            compatible = "zmk,behavior-tap-dance";
+            label = "{ <";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACE>, <&kp LESS_THAN>;
+        };
+
+        tap_Rbracket_GT: tap_Rbracket_GT {
+            compatible = "zmk,behavior-tap-dance";
+            label = "} >";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT_BRACE>, <&kp GREATER_THAN>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -34,9 +50,9 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &kp N1            &kp N2          &kp N3  &kp N4  &kp N5    &kp N6    &kp N7    &kp N8  &kp N9     &kp N0        &trans
-&trans  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &none   &none   &none     &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp COLON     &trans
-&trans  &none             &none           &none   &none   &none     &none     &none     &none   &none      &kp QUESTION  &trans
+&trans  &kp N1            &kp N2          &kp N3  &kp N4  &kp N5    &kp N6    &kp N7    &kp N8  &kp N9     &kp N0  &trans
+&trans  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &none   &none   &none     &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &none   &trans
+&trans  &none             &none           &none   &none   &none     &none     &none     &none   &none      &none   &trans
                                           &trans  &trans  &trans    &mo 3     &trans    &trans
             >;
         };
@@ -51,7 +67,7 @@
             bindings = <
 &kp GRAVE  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK             &kp LPAR          &kp RPAR           &none
 &kp TILDE  &none     &none   &none     &none     &none        &kp MINUS  &kp EQUAL  &kp PIPE              &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp SINGLE_QUOTE
-&trans     &none     &none   &none     &none     &none        &kp UNDER  &kp PLUS   &kp NON_US_BACKSLASH  &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp DOUBLE_QUOTES
+&trans     &none     &none   &none     &none     &none        &kp UNDER  &kp PLUS   &kp NON_US_BACKSLASH  &tap_Lbracket_LT  &tap_Rbracket_GT   &kp DOUBLE_QUOTES
                              &trans    &trans    &mo 3        &trans     &trans     &trans
             >;
         };
