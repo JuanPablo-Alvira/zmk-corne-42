@@ -12,7 +12,7 @@
         quick_sticky: quick_sticky {
             compatible = "zmk,behavior-sticky-key";
             label = "QUICK_STICKY";
-            bindings = <&sk>;
+            bindings = <&kp>;
             #binding-cells = <1>;
             release-after-ms = <800>;
             quick-release;
