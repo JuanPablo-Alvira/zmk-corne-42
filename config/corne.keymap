@@ -27,7 +27,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        base {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
             // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
@@ -42,7 +42,7 @@
             >;
         };
 
-        lower_layer {
+        arrows_numbers {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
             // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
@@ -57,7 +57,7 @@
             >;
         };
 
-        raise_layer {
+        symbols {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
             // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
@@ -67,12 +67,12 @@
             bindings = <
 &kp GRAVE  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK      &kp LPAR          &kp RPAR           &none
 &kp TILDE  &none     &none   &none     &none     &none        &kp MINUS  &kp EQUAL  &kp PIPE       &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp SINGLE_QUOTE
-&trans     &none     &none   &none     &none     &none        &kp UNDER  &kp PLUS   &kp BACKSLASH  &tap_Lbracket_LT  &tap_Rbracket_GT   &kp DOUBLE_QUOTES
+&trans     &none     &none   &none     &none     &none        &kp UNDER  &kp PLUS   &kp BACKSLASH  &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp DOUBLE_QUOTES
                              &trans    &trans    &mo 3        &trans     &trans     &trans
             >;
         };
 
-        function {
+        functions {
             bindings = <
 &kp F1    &kp F2  &kp F3  &kp F4  &kp F5  &kp F6    &kp F7        &kp F8           &kp F9  &kp F10  &kp F11          &kp F12
 &kp CAPS  &none   &none   &none   &none   &none     &kp C_VOL_DN  &kp C_VOLUME_UP  &none   &none    &kp PRINTSCREEN  &kp HOME
