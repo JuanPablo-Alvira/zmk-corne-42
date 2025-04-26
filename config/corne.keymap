@@ -1,91 +1,55 @@
-/*
- * Copyright (c) 2020 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
+{
+  "name": "corne",
+  "layout": "corne",
+  "layers": [
+    {
+      "name": "Base",
+      "bindings": [
+        "KC_ESC", "KC_Q", "KC_W", "KC_E", "KC_R", "KC_T",
+        "KC_Y", "KC_U", "KC_I", "KC_O", "KC_P", "NONE",
+        "KC_TAB", "KC_A", "KC_S", "KC_D", "KC_F", "KC_G",
+        "KC_H", "KC_J", "KC_K", "KC_L", "KC_SCLN", "KC_ENT",
+        "KC_LGUI", "KC_Z", "KC_X", "KC_C", "KC_V", "KC_B",
+        "KC_N", "KC_M", "KC_COMM", "KC_DOT", "KC_SLSH", "KC_RALT",
+        "KC_LCTL", "KC_SPC", "MO(1)", "MO(2)", "KC_RSFT", "KC_BSPC"
+      ]
+    },
+    {
+      "name": "Arrows/Numbers",
+      "bindings": [
+        "TRANS", "KC_1", "KC_2", "KC_3", "KC_4", "KC_5",
+        "KC_6", "KC_7", "KC_8", "KC_9", "KC_0", "TRANS",
+        "TRANS", "KC_LCTL", "KC_LSFT", "NONE", "NONE", "NONE",
+        "KC_LEFT", "KC_DOWN", "KC_UP", "KC_RIGHT", "KC_COLON", "TRANS",
+        "TRANS", "NONE", "NONE", "NONE", "NONE", "NONE",
+        "NONE", "NONE", "KC_LT", "KC_GT", "KC_QUES", "TRANS",
+        "TRANS", "TRANS", "TRANS", "MO(3)", "TRANS", "TRANS"
+      ]
+    },
+    {
+      "name": "Symbols",
+      "bindings": [
+        "KC_GRV", "KC_EXLM", "KC_AT", "KC_HASH", "KC_DLR", "KC_PERC",
+        "KC_CIRC", "KC_AMPR", "KC_ASTR", "KC_LPRN", "KC_RPRN", "NONE",
+        "KC_TILD", "NONE", "NONE", "NONE", "NONE", "NONE",
+        "KC_MINS", "KC_EQL", "KC_PIPE", "KC_LBRC", "KC_RBRC", "KC_QUOT",
+        "TRANS", "NONE", "NONE", "NONE", "NONE", "NONE",
+        "KC_UNDS", "KC_PLUS", "KC_BSLS", "KC_LCBR", "KC_RCBR", "KC_DQT",
+        "TRANS", "TRANS", "MO(3)", "TRANS", "TRANS", "TRANS"
+      ]
+    },
+    {
+      "name": "Functions",
+      "bindings": [
+        "KC_F1", "KC_F2", "KC_F3", "KC_F4", "KC_F5", "KC_F6",
+        "KC_F7", "KC_F8", "KC_F9", "KC_F10", "KC_F11", "KC_F12",
+        "KC_CAPS", "NONE", "NONE", "NONE", "NONE", "NONE",
+        "KC_VOLD", "KC_VOLU", "NONE", "NONE", "KC_PSCR", "KC_HOME",
+        "TRANS", "NONE", "NONE", "&studio_unlock", "NONE", "NONE",
+        "NONE", "NONE", "NONE", "NONE", "NONE", "KC_END",
+        "TRANS", "TRANS", "TRANS", "TRANS", "TRANS", "TRANS"
+      ]
+    }
+  ]
+}
 
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/keys.h>
-&studio_unlock
-
-/ {
-    behaviors {
-        quick_sticky: quick_sticky {
-            compatible = "zmk,behavior-sticky-key";
-            label = "QUICK_STICKY";
-            bindings = <&kp>;
-            #binding-cells = <1>;
-            release-after-ms = <800>;
-            quick-release;
-        };
-    };
-
-    combos {
-        compatible = "zmk,combos";
-
-        BT_CLEAR_ALL {
-            bindings = <&bt BT_CLR_ALL>;
-            key-positions = <24 35>;
-            layers = <3>;
-        };
-    };
-
-    keymap {
-        compatible = "zmk,keymap";
-
-        base {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-
-            bindings = <
-&kp ESCAPE    &kp Q  &kp W  &kp E             &kp R      &kp T    &kp Y  &kp U                      &kp I          &kp O    &kp P     &none
-&kp TAB       &kp A  &kp S  &kp D             &kp F      &kp G    &kp H  &kp J                      &kp K          &kp L    &kp SEMI  &kp ENTER
-&kp LEFT_WIN  &kp Z  &kp X  &kp C             &kp V      &kp B    &kp N  &kp M                      &kp COMMA      &kp DOT  &kp FSLH  &kp RA(RIGHT_ALT)
-                            &kp LEFT_CONTROL  &kp SPACE  &mo 1    &mo 2  &quick_sticky RIGHT_SHIFT  &kp BACKSPACE
-            >;
-        };
-
-        arrows_numbers {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
-            bindings = <
-&trans  &kp N1            &kp N2          &kp N3  &kp N4  &kp N5    &kp N6    &kp N7    &kp N8         &kp N9            &kp N0        &trans
-&trans  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &none   &none   &none     &kp LEFT  &kp DOWN  &kp UP         &kp RIGHT         &kp COLON     &trans
-&trans  &none             &none           &none   &none   &none     &none     &none     &kp LESS_THAN  &kp GREATER_THAN  &kp QUESTION  &trans
-                                          &trans  &trans  &trans    &mo 3     &trans    &trans
-            >;
-        };
-
-        symbols {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
-            bindings = <
-&kp GRAVE  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK      &kp LPAR          &kp RPAR           &none
-&kp TILDE  &none     &none   &none     &none     &none        &kp MINUS  &kp EQUAL  &kp PIPE       &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp SINGLE_QUOTE
-&trans     &none     &none   &none     &none     &none        &kp UNDER  &kp PLUS   &kp BACKSLASH  &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp DOUBLE_QUOTES
-                             &trans    &trans    &mo 3        &trans     &trans     &trans
-            >;
-        };
-
-        functions {
-            bindings = <
-&kp F1    &kp F2  &kp F3  &kp F4  &kp F5  &kp F6    &kp F7        &kp F8           &kp F9  &kp F10  &kp F11          &kp F12
-&kp CAPS  &none   &none   &none   &none   &none     &kp C_VOL_DN  &kp C_VOLUME_UP  &none   &none    &kp PRINTSCREEN  &kp HOME
-&trans    &none   &none   &none   &none   &none     &none         &none            &none   &none    &none            &kp END
-                          &trans  &trans  &trans    &trans        &trans           &trans
-            >;
-        };
-    };
-};
