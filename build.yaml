@@ -18,13 +18,13 @@
 #
 ---
 include:
-  - board: promicro_nrf52840  # Your dongle
+  - board: nice_nano_v2 # Your dongle
     shield: corne_dongle
-  - board: nice_nano_v2       # Left half
+  - board: nice_nano_v2 # Left half
     shield: corne_left
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
-  - board: nice_nano_v2       # Right half
+  - board: nice_nano_v2 # Right half
     shield: corne_right
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
-  - board: promicro_nrf52840  # For settings reset
+  - board: nice_nano_v2 # For settings reset
     shield: settings_reset
